@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Motion Coach - Android Developer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .app-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .app-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .privacy-section, .contact-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .contact-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AI Motion Coach</h1>
+        <p>Independent Android app developer focused on practical, privacy-conscious mobile tools.</p>
+    </header>
+
+    <div class="container">
+        <p style="text-align: center; font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto 3rem;">
+            AI Motion Coach develops Android applications designed to help people use their phones in useful, creative, and safe ways — from motion learning and camera tools to driving assistance and local-first utilities. Our goal is to build apps that are simple, helpful, and respectful of user privacy.
+        </p>
+
+        <h2>Our Apps</h2>
+        <div class="apps-grid">
+            <div class="app-card">
+                <h3>LocalCam Mirror</h3>
+                <p>Lets users connect two Android phones locally, using one phone as a remote camera and the other as a controller. It supports live preview, remote recording, and camera switching. Designed for privacy: no account, no cloud, and no internet required for the core camera connection.</p>
+            </div>
+            
+            <div class="app-card">
+                <h3>Solo Motion Coach <em>(Upcoming)</em></h3>
+                <p>Designed for people learning body movement skills, such as dance, fitness, sports, or technique practice. Helps users compare their solo movement attempts with reference videos and receive basic motion-based feedback.</p>
+            </div>
+
+            <div class="app-card">
+                <h3>NYC CurbCue <em>(Upcoming)</em></h3>
+                <p>A parking-assistance app for New York City drivers. Helps users better understand curbside parking rules using map-based visual guidance, including parking restrictions, signs, hydrants, and time-based curb rules.</p>
+            </div>
+
+            <div class="app-card">
+                <h3>RoadWitness <em>(Upcoming)</em></h3>
+                <p>An Android dashcam-style app designed to help users record driving video locally on their device, featuring automatic recording based on driving conditions and phone position.</p>
+            </div>
+
+            <div class="app-card">
+                <h3>Acoustic Drone Alert <em>(Experimental)</em></h3>
+                <p>An upcoming app focused on sound-based drone awareness. Analyzes microphone input locally to identify possible drone-like acoustic patterns. Intended as an informational alert tool, not a safety-critical detection system.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2>Privacy First</h2>
+            <p>AI Motion Coach is committed to building privacy-conscious applications.</p>
+            <p>Where possible, our apps are designed to work locally on the user’s device. We try to minimize unnecessary data collection, avoid requiring accounts unless truly needed, and clearly explain any permissions required by each app. Each app may have its own privacy policy depending on its features and permissions.</p>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact</h2>
+            <p>For support, questions, or business inquiries, please reach out.</p>
+            <a href="mailto:aimotioncoach@gmail.com" class="contact-btn">Email aimotioncoach@gmail.com</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; <script>document.write(new Date().getFullYear())</script> AI Motion Coach. All rights reserved.
+    </footer>
+
+</body>
+</html>
