@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>Privacy Policy — ADA (Acoustic Drone Alert)</title>
-<meta name="description" content="Privacy policy for ADA — Acoustic Drone Alert. Audio is analysed on your phone and discarded. The app has no internet permission and cannot transmit anything.">
-<meta property="og:title" content="Privacy Policy — ADA (Acoustic Drone Alert)">
-<meta property="og:description" content="Privacy policy for ADA — Acoustic Drone Alert. Audio is analysed on your phone and discarded. The app has no internet permission and cannot transmit anything.">
+<title>Privacy Policy: ADA (Acoustic Drone Alert)</title>
+<meta name="description" content="Privacy policy for ADA: Acoustic Drone Alert. On-device detection, optional local clips and locations, separately enabled Telegram sharing, feedback and reviews.">
+<meta property="og:title" content="Privacy Policy: ADA (Acoustic Drone Alert)">
+<meta property="og:description" content="Privacy policy for ADA: Acoustic Drone Alert. On-device detection, optional local clips and locations, separately enabled Telegram sharing, feedback and reviews.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://yleyzerovich.github.io/drone-alert/privacy/">
 <link rel="canonical" href="https://yleyzerovich.github.io/drone-alert/privacy/">
@@ -68,15 +68,16 @@
 <div class="wrap">
   <a class="back" href="https://yleyzerovich.github.io/">&larr; AI Motion Coach</a>
   <main class="sheet">
-<h1>Privacy Policy — ADA (Acoustic Drone Alert)</h1>
-<p><strong>Last updated:</strong> 2026-09-23<br><strong>Applies to:</strong> ADA — Acoustic Drone Alert for Android<br><strong>Contact:</strong> aimotioncoach@gmail.com</p>
+<h1>Privacy Policy: ADA (Acoustic Drone Alert)</h1>
+<p><strong>Last updated:</strong> 2026-10-12 <strong>Applies to:</strong> ADA: Acoustic Drone Alert for Android <strong>Contact:</strong> aimotioncoach@gmail.com</p>
 <h2>The short version</h2>
-<p>ADA listens for the sound of a drone <strong>on your phone, and only on your phone</strong>.</p>
+<p>ADA analyses drone-like sound on your phone while you have armed it.</p>
 <ul>
-<li>Audio from your microphone is analysed as it arrives and then <strong>discarded</strong>. It is never saved and never sent anywhere.</li>
-<li><strong>ADA has no internet access.</strong> The app does not request the <code>INTERNET</code> permission, so it is technically incapable of transmitting anything — not audio, not incidents, not analytics.</li>
-<li>There is <strong>no account, no sign-in, no advertising and no analytics</strong>.</li>
-<li>What ADA saves — a list of drone-like events it noticed — stays in the app's private storage on your device, and you can delete it.</li>
+<li>Ordinary microphone audio is analysed in memory and discarded. <strong>Save alert clips locally</strong> is optional and off by default; when enabled, ADA saves a short clip for a real microphone alert.</li>
+<li><strong>Save detection location</strong> is independently optional and off by default. When enabled and permitted, ADA saves this phone's position with observations during an armed session.</li>
+<li><strong>Telegram alerts</strong> are independently optional and off by default. If enabled, new acoustic alert facts are sent to the bot destination you configure. Coordinates and map links require separate <strong>Include observation location</strong> consent and local location tagging. Audio is never attached.</li>
+<li>ADA uses internet access for explicit Telegram setup/tests and enabled delivery. Google Play separately handles reviews you choose to submit. It has no developer-operated upload service, advertising, analytics or ADA account.</li>
+<li>You can deliberately export clips or a selected observation point, copy coordinates, or open the point in another app. Those actions transfer the selected data to the destination you choose.</li>
 </ul>
 <h2>What ADA accesses, and why</h2>
 <table><thead><tr>
@@ -86,62 +87,74 @@
 </tr></thead><tbody>
 <tr>
 <td><strong>Microphone</strong> (<code>RECORD_AUDIO</code>)</td>
-<td>To listen for drone-like sound while you have armed ADA</td>
-<td>Audio is held briefly in memory, analysed in short windows, and discarded. No recording is written to storage and nothing is transmitted.</td>
+<td>To analyse drone-like sound while armed</td>
+<td>Analysed locally; ordinary audio is discarded. Optional alert clips remain private until you delete or export them.</td>
+</tr>
+<tr>
+<td><strong>Optional location</strong> (<code>ACCESS_COARSE_LOCATION</code>, <code>ACCESS_FINE_LOCATION</code>)</td>
+<td>To record where this phone heard an observation</td>
+<td>Requested only when you explicitly enable location tagging. Approximate permission is supported. Coordinates and accuracy are saved locally when a suitable fix is available.</td>
 </tr>
 <tr>
 <td><strong>Notifications</strong> (<code>POST_NOTIFICATIONS</code>)</td>
-<td>To show the required "armed" notification, and to alert you</td>
+<td>To show armed status and alerts</td>
 <td>Stays on the device</td>
 </tr>
 <tr>
-<td><strong>Foreground service</strong> (<code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_MICROPHONE</code>)</td>
-<td>So listening continues with the screen off, with a visible notification</td>
-<td>Not data</td>
+<td><strong>Foreground service</strong> (<code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_MICROPHONE</code>, <code>FOREGROUND_SERVICE_LOCATION</code>)</td>
+<td>To continue the user-armed session when the app is not visible</td>
+<td>Microphone service while armed; location service only when enabled and permitted</td>
 </tr>
 <tr>
 <td><strong>Vibration</strong> (<code>VIBRATE</code>)</td>
 <td>To alert you</td>
 <td>Not data</td>
 </tr>
+<tr>
+<td><strong>Internet</strong> (<code>INTERNET</code>)</td>
+<td>Optional Telegram validation, explicit setup test and enabled alert delivery</td>
+<td>Contacts the fixed Telegram Bot API host over HTTPS. Opening Settings or leaving Telegram alerts off causes no automatic Bot API calls.</td>
+</tr>
 </tbody></table>
-<p>ADA requests no other permissions. It has no access to your contacts, location, photos, files, phone identity or network.</p>
-<p><strong>The microphone is used only while ADA is armed.</strong> You arm it deliberately; it never listens before that. While it is listening, Android shows a notification the whole time, and ADA does not restart itself after you disarm it or after another app takes the microphone.</p>
+<p>ADA does not request background location ("Allow all the time"), broad storage access, contacts, photos or phone identity. Internet is a normal Android permission; optional Telegram delivery is controlled by the app's settings. Exports use the document location you explicitly select or a temporary, read-only grant for the selected KML file.</p>
+<h2>Armed sessions and optional location</h2>
+<p>You arm ADA deliberately. It can continue with the screen off, another app visible, or its card removed from Recents. Android shows foreground-service status while the session is active. Disarming ends microphone and location collection. Android's Active apps Stop or Force stop also stops the app; ADA does not promise to restart after process termination.</p>
+<p>Location is collected only during an armed session with location tagging enabled and permission available. It is not collected merely because you open History, view a map, or grant permission. Denying or revoking location permission does not disable microphone detection. A location fix may be unavailable, stale or approximate; ADA does not replace a missing historic fix with today's position. Demo observations do not receive real phone coordinates.</p>
+<p>A saved point is <strong>the phone's observation location, not the drone's position</strong>. ADA does not infer source direction, distance, altitude or a flight path from it.</p>
 <h2>What is stored on your device</h2>
-<p>When ADA notices a drone-like sound it saves a record of the <strong>event</strong>, never the sound:</p>
-<ul>
-<li>when it started and ended, and how long it lasted</li>
-<li>how confident the detector was, and the decision it reached (alerted you / stored quietly / ignored on purpose)</li>
-<li>acoustic measurements — frequency, harmonics, loudness, signal-to-noise and similar numbers</li>
-<li>which drone model the sound most resembled, if any, and how closely</li>
-<li>the sensitivity settings in force at the time</li>
-<li>whether the event came from the in-app <strong>Demo</strong> feature rather than the microphone</li>
-</ul>
-<p>It also stores your settings (sensitivity, alert timing, appearance, and so on).</p>
-<p>All of this lives in the app's <strong>private storage</strong>, which other apps cannot read. It is not uploaded, backed up to us, or shared with anyone, because there is nobody to share it with — the app cannot reach the network.</p>
-<h2>What ADA never does</h2>
-<ul>
-<li>It never saves your audio.</li>
-<li>It never sends audio, incidents or usage data anywhere.</li>
-<li>It never listens when it is not armed.</li>
-<li>It has no advertising, no trackers, no third-party analytics SDKs.</li>
-<li>It does not identify you, and does not build a profile.</li>
-</ul>
+<p>ADA stores local incident records: times and duration, detector confidence and decisions, acoustic measurements, possible model resemblance, settings, and whether an event was a demo. It also stores observation snapshots so that a merged History incident can retain its separate observations. When enabled and available, a snapshot includes coordinates, reported accuracy, fix time and age, and whether permission was approximate or precise. If a fresh position is missing at a real first alert, ADA may request one for up to ten seconds while the authorized session continues. History shows acquisition pending. A position measured afterward retains its actual time and is labeled as obtained after detection, not an exact position at detection. Disarm, location disable/revocation and deletion end or invalidate this acquisition. An observation saved before an interrupted session may be retained even when no final incident was completed. Telegram can create location-free alert snapshots with local tagging off. New observation snapshots are created only when local tagging or Telegram alerts are enabled.</p>
+<p>Observation metadata is limited to the most recent 10,000 observations. Removing older observation metadata does not remove its parent History incident; its location details may therefore no longer be available.</p>
+<p>Optional alert clips contain a short microphone window from a real alert and any review label you choose. Clips are retained within the app's limits of 30 days, 500 clips or 100 MB, with oldest clips removed first. Clip saving is separate from location tagging. Neither option enables automatic sharing or model training.</p>
+<p>Incident and observation data, clip files, and these settings are excluded from Android cloud backup and device transfer. They remain in app-private storage. Temporary KML files prepared for Google Earth contain only the selected point; ADA removes older temporary exports when preparing new ones and clears them when you delete saved locations or History.</p>
+<p>Telegram credentials and destination metadata are encrypted with Android Keystore-backed authenticated encryption in private storage excluded from backup and transfer. A missing or invalid key requires reconnecting; ADA does not fall back to plaintext storage. Tokens are not included in alert payloads or diagnostic messages. Disconnect removes the credential.</p>
+<p>The private delivery queue contains text projections that are immutable once delivery is attempted, destination/consent generations, retry state and optional Telegram receipts; it never contains a bot token or audio attachment. Pending delivery is limited to 200 messages / 5 MB and a 15-minute alert lifetime, with up to eight attempts for eligible temporary failures. Delivery status can be sent, queued, cancelled, expired, failed or uncertain. An uncertain delivery is not retried automatically. Queue metadata is linked to observations and removed with them.</p>
+<h2>Optional Telegram delivery</h2>
+<p>You configure your own dedicated bot and a private chat, group or channel through a guided setup. <strong>Validate bot</strong> explicitly contacts Telegram to check the token. After you start a chat with the bot or add it to a channel/group, <strong>Find chats</strong> reads recent bot updates to discover destination names, types and numeric chat IDs. Incoming message text is not retained. This lookup runs only when requested during setup; ADA does not continuously read your chats or change a bot webhook. You select a named destination, or optionally enter its ID/username manually. Selecting it contacts Telegram to validate and save the destination. <strong>Send test</strong> explicitly posts a labeled setup message with no real detection, position or audio. Neither action turns automatic alerts on; the master toggle is separate. Enter credentials only on the phone.</p>
+<p>When enabled, ADA sends a real first acoustic alert without waiting for final History merging or clip saving. Text includes observation time from the phone's clock, the local uncalibrated score, an optional model-resemblance hypothesis and a short event identifier. It does not verify that a physical drone exists. Coordinates, accuracy and a map link are included only when location sharing was allowed at capture and remains allowed at dispatch. If coordinate sharing is enabled and acquisition is pending, the unattempted Telegram alert may wait up to ten seconds for that bounded acquisition; otherwise it sends without coordinates. Retrying never substitutes the phone's current location for the saved observation point. Demos, demo-attributed windows, cached or warm-up results, quietly stored events and suppressed repeats are excluded.</p>
+<p>Delivery workers run only while the user-armed service is active or the app is visible. Disarmed background delivery waits for a later permitted session and may expire. ADA does not add a boot receiver or an always-on Telegram service. Telegram notifications work with location denied/off and clip saving off. Disabling Telegram resets location sharing and cancels pending messages. Disabling local tagging or losing location access resets location sharing and cancels pending coordinate publications. Changing the bot/destination cancels old pending work; it is not redirected.</p>
+<p>Telegram and the destination's participants receive and may retain sent messages under their own policies. The developer does not receive them through an ADA server. Requests already accepted by Telegram cannot be recalled by local opt-out, deletion or uninstall. Delivery can be delayed, missed, duplicated or uncertain; local detection does not depend on successful delivery. This version does not read peer observations, match other phones' detections or triangulate a drone.</p>
+<h2>Exports and other apps</h2>
+<p>Opening a point on a map or in Google Earth deliberately passes that saved position to the selected app. Export KML saves the selected point and its observation time and accuracy to a file you choose. Copy coordinates places the selected coordinates on the system clipboard. Export alert clips creates an archive with the saved clips and review metadata.</p>
+<p>The chosen app, file provider, clipboard and any copies you make are outside ADA's private storage. They may have their own network access, retention and privacy policies. ADA cannot remove those copies when you delete local data or uninstall it. Optional Telegram delivery is described separately above; peer exchange is not included in this version.</p>
+<h2>Feedback, app sharing and Google Play reviews</h2>
+<p><strong>Send feedback</strong> opens an editable email draft to the support address. It prefills the app and model-registry versions, Android version, and device manufacturer/model for troubleshooting. You can edit or remove those details and choose whether to send through your email provider. ADA does not send the email itself or attach audio, observation locations, History, logs or unique device identifiers. The support recipient and your email provider receive what you send. If no email app is available, ADA copies only the support address to the clipboard.</p>
+<p><strong>Share ADA</strong> passes a short app description and Play Store link to Android's sharing menu. It does not include your detection data. The app you choose handles the message under its own policy.</p>
+<p><strong>Rate ADA</strong> opens Google Play. ADA may also request Google's standard in-app review card after several completed listening sessions. Local session counts and invitation timestamps are stored only to limit invitations; they are not analytics and are not uploaded to the developer. Google decides whether its card appears. ADA cannot tell whether you submitted a rating. Ratings and review text you submit are handled by Google Play: public for public releases, or shared privately with the developer during closed testing. These actions do not share audio, locations or incident records. You can dismiss the review card and continue using ADA.</p>
 <h2>Your control over your data</h2>
 <ul>
-<li><strong>Delete your history:</strong> Settings → Privacy → <em>Delete all history</em> removes every stored incident from this phone, immediately and permanently.</li>
-<li><strong>Uninstall:</strong> removing the app deletes everything it has stored on your device — incidents and settings alike. Because nothing is ever uploaded, that is genuinely all of it.</li>
+<li><strong>Turn off location tagging:</strong> Settings → Privacy → <em>Save detection location</em> stops new location collection. Existing saved points remain until deleted.</li>
+<li><strong>Delete saved locations:</strong> removes saved coordinate/fix fields and pending fixes, while keeping incident facts and clips. Coordinate-bearing delivery payloads are removed too. Fresh future observations can receive locations if tagging stays on.</li>
+<li><strong>Delete all history:</strong> removes local incidents, their observations, interrupted observations and associated alert clips. New observations from later events may be saved while armed.</li>
+<li><strong>Delete all alert clips:</strong> removes stored audio and review labels without deleting incident facts.</li>
+<li><strong>Turn off Telegram:</strong> cancels pending messages and resets location sharing; the encrypted connection can be retained for later explicit use. <strong>Disconnect</strong> also forgets the credential.</li>
+<li><strong>Uninstall:</strong> removes app-private data. Exported copies and other apps' data are unaffected.</li>
 </ul>
 <h2>Drone model names</h2>
-<p>When ADA names a drone model it is reporting <strong>acoustic similarity to a known recording</strong>, not an identification of a specific aircraft or its operator. ADA cannot tell you who is flying a drone, where it is, or who owns it. It has no camera, no location access and no network.</p>
-<h2>Children</h2>
-<p>ADA is not directed at children and collects no data from anyone.</p>
-<h2>Open data used by the detector</h2>
-<p>ADA's detector was trained on publicly available datasets, and the app bundles some recordings and photographs from them for its demo and reference features. These are credited in the app under <strong>Settings → Data sources &amp; credits</strong>, as their licences (CC BY 4.0) require. No personal data is involved.</p>
-<h2>Changes to this policy</h2>
-<p>If the app's data handling changes, this policy will be updated and the "last updated" date above will change. Material changes will be noted in the app's release notes.</p>
-<h2>Contact</h2>
-<p>aimotioncoach@gmail.com</p>
+<p>A model name reports acoustic similarity to recordings, not the identity of an individual physical drone or its operator. Location tagging does not change this limitation.</p>
+<h2>Children and open data</h2>
+<p>ADA is not directed at children. The app does not automatically send personal data to the developer. Feedback email and closed-test reviews contain only the information you choose to submit, as described above. The bundled detector, demo recordings and reference photographs use public datasets credited under <strong>Settings → Data sources &amp; credits</strong>. Local microphone clips are not automatically uploaded or added to training data.</p>
+<h2>Changes and contact</h2>
+<p>Changes to data handling update this policy and its version. The app asks for agreement again when a material document change is shipped. Questions: aimotioncoach@gmail.com</p>
   </main>
   <footer>Generated from the ADA source repository. Do not edit this file by hand.</footer>
 </div>
