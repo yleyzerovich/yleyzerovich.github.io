@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>AI Motion Coach</title>
-  <meta name="description" content="AI Motion Coach — independent Android developer. LocalCam home security camera, Road Witness automatic dashcam, CurbCue NYC parking rules. Local-first, privacy-conscious apps on Google Play.">
+  <meta name="description" content="AI Motion Coach — independent Android developer. LocalCam, Road Witness, CurbCue and ADA: Acoustic Drone Alert on Google Play. App details, privacy policies and support.">
   <meta property="og:title" content="AI Motion Coach — Android apps">
-  <meta property="og:description" content="LocalCam, Road Witness and CurbCue on Google Play. Apps that work on your phone, not in the cloud.">
+  <meta property="og:description" content="LocalCam, Road Witness, CurbCue and ADA: Acoustic Drone Alert on Google Play. Explore the apps, privacy policies and support links.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://yleyzerovich.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
     --rule:     #D5DDE0;
     --accent:   #0F7B7B;
     --accent-2: #0B5F5F;
+    --on-accent: #FFFFFF;
     --wash:     #DFF0EF;
     --live:     #1E7A4C;
     --live-bg:  #DDEFE4;
@@ -45,6 +46,7 @@
       --rule:     #2B363B;
       --accent:   #4FC3C3;
       --accent-2: #7AD6D6;
+      --on-accent: #0F1416;
       --wash:     #13302F;
       --live:     #5FBB86;
       --live-bg:  #15271D;
@@ -62,6 +64,7 @@
     --rule:     #2B363B;
     --accent:   #4FC3C3;
     --accent-2: #7AD6D6;
+    --on-accent: #0F1416;
     --wash:     #13302F;
     --live:     #5FBB86;
     --live-bg:  #15271D;
@@ -122,7 +125,8 @@
   .count { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
 
   /* app cards */
-  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.1rem; }
+  .apps, .dev { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+  @media (max-width: 44rem) { .apps, .dev { grid-template-columns: minmax(0, 1fr); } }
   .app {
     background: var(--surface);
     border: 1px solid var(--rule);
@@ -149,10 +153,11 @@
   .pill.soon { background: var(--soon-bg); color: var(--soon); }
   .app p { color: var(--ink-2); font-size: 0.98rem; }
   .app ul { margin: 0; padding-left: 1.1rem; color: var(--ink-2); font-size: 0.94rem; display: flex; flex-direction: column; gap: 0.25rem; }
-  .app-foot { margin-top: auto; padding-top: 0.6rem; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.6rem 1rem; }
+  .app-foot { margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--rule); display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+  .app-links { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; font-size: 0.9rem; }
   .play {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--accent); color: #fff !important;
+    background: var(--accent); color: var(--on-accent);
     text-decoration: none; font-weight: 600; font-size: 0.92rem;
     padding: 0.55rem 0.95rem; border-radius: 7px;
     transition: background 0.15s ease;
@@ -160,9 +165,8 @@
   .play:hover { background: var(--accent-2); }
   .play svg { width: 15px; height: 15px; fill: currentColor; }
   .support { font-size: 0.84rem; color: var(--muted); }
-  .support a { color: var(--ink-2); }
+  .support a { color: var(--ink-2); overflow-wrap: anywhere; }
 
-  .dev { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.1rem; }
   .dev .app { background: transparent; border-style: dashed; }
 
   /* privacy + contact */
@@ -186,10 +190,10 @@
   <header class="mast">
     <div>
       <h1>AI Motion Coach</h1>
-      <p class="lede">Independent Android developer. Small, focused apps that do their work on your phone &mdash; no accounts, no cloud, no data leaving the device unless you send it.</p>
+      <p class="lede">Independent Android developer. Practical apps for cameras, driving, parking and sound-based awareness, with on-device processing and clear privacy controls.</p>
     </div>
     <div class="facts">
-      <span><b>3 apps</b> on Google Play</span>
+      <span><b>4 apps</b> on Google Play</span>
       <span>Based in New Jersey, USA</span>
       <span><a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></span>
     </div>
@@ -198,7 +202,7 @@
   <section>
     <div class="sec-head">
       <h2>On Google Play</h2>
-      <span class="count">3 live</span>
+      <span class="count">4 live</span>
     </div>
     <div class="apps">
 
@@ -212,15 +216,18 @@
         </div>
         <p>Turn a spare Android phone into a private security camera. A second phone is the viewer and remote &mdash; live preview, remote recording, camera switching.</p>
         <ul>
-          <li>No login, no cloud, no subscription</li>
-          <li>The two phones talk directly over your local network</li>
+          <li>No developer account required</li>
+          <li>The two phones connect directly over local Wi-Fi or Bluetooth</li>
           <li>Footage stays on the device that recorded it</li>
         </ul>
         <div class="app-foot">
-          <a class="play" href="https://play.google.com/store/apps/details?id=com.localcammirror">
+          <a class="play" aria-label="Get LocalCam on Google Play" href="https://play.google.com/store/apps/details?id=com.localcammirror">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path d="M16.1 15.6 13 12.5v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1z"/><path d="m16.2 15.5-3.2-3.2-9.4 9.4c.3.4.9.4 1.5.1l11.1-6.3"/><path d="M16.2 9.3 5.1 3c-.6-.4-1.2-.3-1.5.1l9.4 9.4 3.2-3.2z"/></svg>
             Google Play
           </a>
+          <div class="app-links">
+            <a href="/localcam-mirror/privacy/" aria-label="LocalCam privacy policy">Privacy policy</a>
+          </div>
           <span class="support">Support: <a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></span>
         </div>
       </article>
@@ -237,13 +244,16 @@
         <ul>
           <li>Recording is automatic &mdash; no button to remember</li>
           <li>Video is saved locally, on your phone</li>
-          <li>Nothing is uploaded anywhere</li>
+          <li>Review recordings and trip history</li>
         </ul>
         <div class="app-foot">
-          <a class="play" href="https://play.google.com/store/apps/details?id=com.roadwitness">
+          <a class="play" aria-label="Get Road Witness on Google Play" href="https://play.google.com/store/apps/details?id=com.roadwitness">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path d="M16.1 15.6 13 12.5v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1z"/><path d="m16.2 15.5-3.2-3.2-9.4 9.4c.3.4.9.4 1.5.1l11.1-6.3"/><path d="M16.2 9.3 5.1 3c-.6-.4-1.2-.3-1.5.1l9.4 9.4 3.2-3.2z"/></svg>
             Google Play
           </a>
+          <div class="app-links">
+            <a href="https://sites.google.com/view/roadwitness/home" aria-label="Road Witness privacy policy">Privacy policy</a>
+          </div>
           <span class="support">Support: <a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></span>
         </div>
       </article>
@@ -263,11 +273,41 @@
           <li>Built on NYC Open Data; optional voice guidance while driving</li>
         </ul>
         <div class="app-foot">
-          <a class="play" href="https://play.google.com/store/apps/details?id=com.curbcue">
+          <a class="play" aria-label="Get CurbCue on Google Play" href="https://play.google.com/store/apps/details?id=com.curbcue">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path d="M16.1 15.6 13 12.5v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1z"/><path d="m16.2 15.5-3.2-3.2-9.4 9.4c.3.4.9.4 1.5.1l11.1-6.3"/><path d="M16.2 9.3 5.1 3c-.6-.4-1.2-.3-1.5.1l9.4 9.4 3.2-3.2z"/></svg>
             Google Play
           </a>
+          <div class="app-links">
+            <a href="https://sites.google.com/view/nyc-curbcue/home" aria-label="CurbCue privacy policy">Privacy policy</a>
+          </div>
           <span class="support">Support: <a href="mailto:curbcue.nyc@gmail.com">curbcue.nyc@gmail.com</a></span>
+        </div>
+      </article>
+
+      <article class="app">
+        <div class="app-top">
+          <div>
+            <h3>ADA: Acoustic Drone Alert</h3>
+            <div class="sub">Sound-based awareness</div>
+          </div>
+          <span class="pill live">Live</span>
+        </div>
+        <p>Listens for drone-like acoustic patterns using the phone's microphone, processed locally. An informational alert, not a safety-critical detector.</p>
+        <ul>
+          <li>You control when the microphone listens</li>
+          <li>Review saved detections and model estimates</li>
+          <li>Optional location tagging and Telegram notifications</li>
+        </ul>
+        <div class="app-foot">
+          <a class="play" aria-label="Get Acoustic Drone Alert on Google Play" href="https://play.google.com/store/apps/details?id=com.dronealert">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.7 2.2l-.1.1z"/><path d="M16.1 15.6 13 12.5v-.2l3.1-3.1.1.1 3.7 2.1c1 .6 1 1.6 0 2.2l-3.7 2.1-.1-.1z"/><path d="m16.2 15.5-3.2-3.2-9.4 9.4c.3.4.9.4 1.5.1l11.1-6.3"/><path d="M16.2 9.3 5.1 3c-.6-.4-1.2-.3-1.5.1l9.4 9.4 3.2-3.2z"/></svg>
+            Google Play
+          </a>
+          <div class="app-links">
+            <a href="/drone-alert/privacy/" aria-label="Acoustic Drone Alert privacy policy">Privacy policy</a>
+            <a href="/drone-alert/terms/">Terms of use</a>
+          </div>
+          <span class="support">Support: <a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></span>
         </div>
       </article>
 
@@ -290,32 +330,18 @@
         </div>
         <p>For learning body-movement skills &mdash; dance, fitness, sports technique. Compare your attempt to a reference video and get basic motion feedback, on-device.</p>
       </article>
-      <article class="app">
-        <div class="app-top">
-          <div>
-            <h3>Acoustic Drone Alert</h3>
-            <div class="sub">Sound-based awareness</div>
-          </div>
-          <span class="pill soon">Experimental</span>
-        </div>
-        <p>Listens for drone-like acoustic patterns using the phone's microphone, processed locally. An informational alert, not a safety-critical detector.</p>
-        <div class="app-foot">
-          <a href="/drone-alert/privacy/">Privacy policy</a>
-          <a href="/drone-alert/terms/">Terms of use</a>
-        </div>
-      </article>
     </div>
   </section>
 
   <div class="two">
     <section class="panel">
       <h2>Privacy</h2>
-      <p>The apps are built to work on your device. In practice that means:</p>
+      <p>Review each app&rsquo;s privacy policy before installing. Direct links are included with every app above.</p>
       <ul>
-        <li>No accounts, unless a feature genuinely cannot work without one &mdash; none of the current apps require one.</li>
-        <li>No cloud storage of your video, photos, or location. What the app records stays on your phone.</li>
+        <li>Policies explain what each app accesses, stores on your device or sends through connected services.</li>
+        <li>Maps, Google Play and optional sharing can involve third-party processing, as described in each app&rsquo;s policy.</li>
         <li>Permissions are requested when a feature needs them, and the app explains why.</li>
-        <li>Each app has its own privacy policy, linked from its Google Play listing, covering exactly what that app accesses. <a href="/drone-alert/privacy/">Acoustic Drone Alert&rsquo;s policy</a> is published here.</li>
+        <li>Each live app has a Google Play link, a privacy-policy link and a support contact. Additional terms are linked where available.</li>
       </ul>
     </section>
     <section class="panel">
@@ -325,6 +351,7 @@
         <div class="row"><span class="k">LocalCam support</span><a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></div>
         <div class="row"><span class="k">Road Witness support</span><a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></div>
         <div class="row"><span class="k">CurbCue support</span><a href="mailto:curbcue.nyc@gmail.com">curbcue.nyc@gmail.com</a></div>
+        <div class="row"><span class="k">Acoustic Drone Alert support</span><a href="mailto:aimotioncoach@gmail.com">aimotioncoach@gmail.com</a></div>
       </div>
       <p style="font-size:0.88rem">Bug reports are welcome &mdash; include your phone model and Android version and it gets fixed faster.</p>
     </section>
